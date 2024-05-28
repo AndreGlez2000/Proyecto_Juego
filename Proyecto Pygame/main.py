@@ -26,7 +26,7 @@ BG = pygame.image.load(os.path.join("imagenes/Otros", "Track.png"))
 class Player:
     POS_Y = 361
     POS_DUCK_Y = 373
-    JUMP_VEL = 8.5  # Aumentar la velocidad del salto
+    JUMP_VEL = 6.2  # Aumentar la velocidad del salto
 
     def __init__(self, player_num):
         if player_num == 1:
