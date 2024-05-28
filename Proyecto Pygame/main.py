@@ -29,10 +29,7 @@ class Player:
     JUMP_VEL = 6.2  # Aumentar la velocidad del salto
 
     def __init__(self, player_num):
-        if player_num == 1:
-            self.POS_X = 90
-        elif player_num == 2:
-            self.POS_X = 190
+        self.POS_X = 90  # Posición inicial de todos los jugadores
         self.idle_img = IDLE
         self.duck_img = DUCKING
         self.run_img = RUNNING
@@ -91,6 +88,23 @@ class Player:
                 self.player_jump = True
                 self.jump_vel = self.JUMP_VEL
             elif userInput[pygame.K_z] and not self.player_jump:
+                self.player_idle = False
+                self.player_duck = True
+                self.player_run = False
+                self.player_jump = False
+            elif not self.player_jump:
+                self.player_idle = False
+                self.player_duck = False
+                self.player_run = True
+                self.player_jump = False
+        elif self.player_num == 3:
+            if pygame.mouse.get_pressed()[0] and not self.player_jump:
+                self.player_idle = False
+                self.player_duck = False
+                self.player_run = False
+                self.player_jump = True
+                self.jump_vel = self.JUMP_VEL
+            elif pygame.mouse.get_pressed()[2] and not self.player_jump:
                 self.player_idle = False
                 self.player_duck = True
                 self.player_run = False
@@ -309,6 +323,11 @@ def menu(death_count):
         textRect.center = (PANTALLA_X // 2, PANTALLA_Y // 2 + 50)
         PANTALLA.blit(text, textRect)
 
+        text = font.render("3 Jugadores (↑, Space y Clics)", True, (0, 0, 0))
+        textRect = text.get_rect()
+        textRect.center = (PANTALLA_X // 2, PANTALLA_Y // 2 + 100)
+        PANTALLA.blit(text, textRect)
+
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -319,6 +338,8 @@ def menu(death_count):
                     main(num_players=1)
                 elif event.key == pygame.K_SPACE:
                     main(num_players=2)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                main(num_players=3)
 
         clock.tick(30)
 
