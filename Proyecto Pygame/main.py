@@ -313,17 +313,17 @@ def menu(death_count):
         textRect.center = (PANTALLA_X // 2, PANTALLA_Y // 2 - 50)
         PANTALLA.blit(text, textRect)
 
-        text = font.render("1 Jugador (↑)", True, (0, 0, 0))
+        text = font.render("1 Jugador (Flecha Arriba)", True, (0, 0, 0))
         textRect = text.get_rect()
         textRect.center = (PANTALLA_X // 2, PANTALLA_Y // 2)
         PANTALLA.blit(text, textRect)
 
-        text = font.render("2 Jugadores (↑ y Space)", True, (0, 0, 0))
+        text = font.render("2 Jugadores (Flecha Arriba y Space)", True, (0, 0, 0))
         textRect = text.get_rect()
         textRect.center = (PANTALLA_X // 2, PANTALLA_Y // 2 + 50)
         PANTALLA.blit(text, textRect)
 
-        text = font.render("3 Jugadores (↑, Space y Clics)", True, (0, 0, 0))
+        text = font.render("3 Jugadores (Flecha Arriba, Space y Clics)", True, (0, 0, 0))
         textRect = text.get_rect()
         textRect.center = (PANTALLA_X // 2, PANTALLA_Y // 2 + 100)
         PANTALLA.blit(text, textRect)
